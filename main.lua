@@ -51,7 +51,7 @@ VIRTUAL_WIDTH = 432
 VIRTUAL_HEIGHT = 243
 
 -- paddle movement speed
-PADDLE_SPEED = 200
+PADDLE_SPEED = 300
 
 --[[
     Called just once at the beginning of the game; used to set up
@@ -142,11 +142,11 @@ function love.update(dt)
     if gameState == 'serve' then
         -- before switching to play, initialize ball's velocity based
         -- on player who last scored
-        ball.dx = math.random(-50, 50)
+        ball.dx = math.random(-20, 20)
         if servingPlayer == 1 then
-            ball.dy = math.random(140, 200)
+            ball.dy = math.random(110, 140)
         else
-            ball.dy = -math.random(140, 200)
+            ball.dy = -math.random(110, 140)
         end
     elseif gameState == 'play' then
         -- detect ball collision with paddles, reversing dx if true and
@@ -158,9 +158,9 @@ function love.update(dt)
 
             -- keep velocity going in the same direction, but randomize it
             if ball.dy < 0 then
-                ball.dy = -math.random(10, 150)
+                ball.dy = -math.random(100, 140)
             else
-                ball.dy = math.random(10, 150)
+                ball.dy = math.random(100, 140)
             end
 
             sounds['paddle_hit']:play()
@@ -171,9 +171,9 @@ function love.update(dt)
 
             -- keep velocity going in the same direction, but randomize it
             if ball.dx < 0 then
-                ball.dx = -math.random(10, 150)
+                ball.dx = -math.random(100, 140)
             else
-                ball.dx = math.random(10, 150)
+                ball.dx = math.random(100, 140)
             end
 
             sounds['paddle_hit']:play()
