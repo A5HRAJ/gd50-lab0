@@ -4,8 +4,11 @@
 
     -- Ball Class --
 
-    Author: Colton Ogden
+    Original Author: Colton Ogden
     cogden@cs50.harvard.edu
+
+    Updated By: Ashwin Rajani
+    rajani@g.harvard.edu
 
     Represents a ball which will bounce back and forth between paddles
     and walls until it passes a left or right boundary of the screen,
@@ -33,13 +36,13 @@ end
 function Ball:collides(paddle)
     -- first, check to see if the left edge of either is farther to the right
     -- than the right edge of the other
-    if self.x > paddle.x + paddle.width or paddle.x > self.x + self.width then
+    if self.y > paddle.y + paddle.height or paddle.y > self.y + self.height then
         return false
     end
 
     -- then check to see if the bottom edge of either is higher than the top
     -- edge of the other
-    if self.y > paddle.y + paddle.height or paddle.y > self.y + self.height then
+    if self.x > paddle.x + paddle.width or paddle.x > self.x + self.width then
         return false
     end 
 
